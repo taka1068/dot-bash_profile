@@ -8,6 +8,7 @@ source ~/.git-prompt.sh
 
 export PS1='\[\e[31;1m\]\w$(__git_ps1 " (%s)") \$ \[\e[0m\]'
 export PROMPT_DIRTRIM=3
+export GIT_PS1_SHOWDIRTYSTATE=1
 
 
 alias ls='ls -F'
