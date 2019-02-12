@@ -1,0 +1,5 @@
+# some useful links
+
+https://www.ibm.com/developerworks/linux/library/l-tip-prompt/
+http://bashrcgenerator.com/
+https://git-scm.com/book/en/v2/Appendix-A%3A-Git-in-Other-Environments-Git-in-Bash
