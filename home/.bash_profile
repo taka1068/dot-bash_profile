@@ -7,7 +7,7 @@ source ~/.git-prompt.sh
 
 ### PS1
 
-export PS1='\[\e[31;1m\]\w \[\e[38;5;3m\]$(__git_ps1 "(%s)") \[\e[36;1m\]$? \[\e[0m\]'
+export PS1='\[\e[31;1m\]\w\[\e[38;5;3m\]$(__git_ps1 " (%s)") \[\e[36;1m\]$? \[\e[0m\]'
 export PROMPT_DIRTRIM=3
 export GIT_PS1_SHOWDIRTYSTATE=1
 
