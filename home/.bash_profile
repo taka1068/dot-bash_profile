@@ -25,4 +25,14 @@ alias emacs='emacs -nw'
 alias tree='tree -F'
 alias myc='clang -Wall -Wextra -std=c11'
 
+### misc
+
+if command -v rbenv >/dev/null; then
+    eval "$(rbenv init -)"
+fi
+
+if command -v pyenv >/dev/null; then
+    eval "$(pyenv init -)"
+fi
+
 
