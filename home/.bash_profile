@@ -7,7 +7,13 @@ source ~/.git-prompt.sh
 
 ### PS1
 
-export PS1='\[\e[31;1m\]\w\[\e[38;5;3m\]$(__git_ps1 " (%s)") \[\e[36;1m\]$? \[\e[0m\]'
+__PS_RED='\[\e[31;1m\]'
+__PS_GREEN='\[\e[32;1m\]'
+__PS_CYAN='\[\e[36;1m\]'
+__PS_CLEAR='\[\e[0m\]'
+
+export PS1="${__PS_RED}\w${__PS_GREEN}\$(__git_ps1 \" (%s)\") ${__PS_CYAN}$?\n"
+export PS1="${PS1}${__PS_RED}$ ${__PS_CLEAR}"
 export PROMPT_DIRTRIM=3
 export GIT_PS1_SHOWDIRTYSTATE=1
 
@@ -19,3 +25,5 @@ alias mv='mv -i'
 alias emacs='emacs -nw'
 alias tree='tree -F'
 alias myc='clang -Wall -Wextra -std=c11'
+
+
