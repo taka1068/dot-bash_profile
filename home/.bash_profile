@@ -9,10 +9,9 @@ source ~/.git-prompt.sh
 
 __PS_RED='\[\e[31;1m\]'
 __PS_GREEN='\[\e[32;1m\]'
-__PS_CYAN='\[\e[36;1m\]'
 __PS_CLEAR='\[\e[0m\]'
 
-export PS1="${__PS_RED}\w${__PS_GREEN}\$(__git_ps1 \" (%s)\") ${__PS_CYAN}\n"
+export PS1="${__PS_RED}\w${__PS_GREEN}\$(__git_ps1 \" (%s)\")\n"
 export PS1="${PS1}${__PS_RED}$ ${__PS_CLEAR}"
 export PROMPT_DIRTRIM=3
 export GIT_PS1_SHOWDIRTYSTATE=1
