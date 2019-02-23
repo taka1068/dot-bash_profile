@@ -18,10 +18,12 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 
 ### aliases
 
+alias emacs='emacsclient -a -t'
+alias em='open -a emacs $1'
+alias ekill='emacsclient -e "(kill-emacs)"'
 alias ls='ls -F'
 alias rm='rm -i'
 alias mv='mv -i'
-alias emacs='emacs -nw'
 alias tree='tree -F'
 alias myc='clang -Wall -Wextra -std=c11'
 
