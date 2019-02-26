@@ -15,6 +15,8 @@ export PS1="${__PS_RED}\w${__PS_GREEN}\$(__git_ps1 \" (%s)\")\n"
 export PS1="${PS1}${__PS_RED}$ ${__PS_CLEAR}"
 export PROMPT_DIRTRIM=3
 export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWUPSTREAM="auto"
 
 ### aliases
 
