@@ -20,7 +20,7 @@ export GIT_PS1_SHOWUPSTREAM="auto"
 
 ### aliases
 
-alias emacs='emacsclient -a -t'
+alias emacs='__emacs'
 alias em='open -a emacs $1'
 alias ekill='emacsclient -e "(kill-emacs)"'
 alias ls='ls -F'
@@ -38,5 +38,27 @@ fi
 if command -v pyenv >/dev/null; then
     eval "$(pyenv init -)"
 fi
+
+__emacs() {
+    if [ -z "$1" ]; then
+        emacsclient -a -t -c
+    elif [ ! -f "$1" ]; then
+        touch "$1"
+        emacsclient -a -t "$1"
+    else
+        emacsclient -a -t "$1"
+    fi
+}
+
+__ema() {
+    if [ -z "$1" ]; then
+        open -a emacs
+    elif [ ! -f "$1" ]; then
+        touch "$1"
+        open -a emacs "$1"
+    else
+        open -a emacs "$1"
+    fi
+}
 
 
