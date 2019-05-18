@@ -21,7 +21,7 @@ export GIT_PS1_SHOWUPSTREAM="auto"
 ### aliases
 
 alias emacs='__emacs'
-alias em='open -a emacs $1'
+alias em='__em'
 alias ekill='emacsclient -e "(kill-emacs)"'
 alias ls='ls -F'
 alias rm='rm -i'
@@ -50,7 +50,7 @@ __emacs() {
     fi
 }
 
-__ema() {
+__em() {
     if [ -z "$1" ]; then
         open -a emacs
     elif [ ! -f "$1" ]; then
