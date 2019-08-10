@@ -29,6 +29,12 @@ alias mv='mv -i'
 alias tree='tree -F'
 alias myc='clang -Wall -Wextra -std=c11'
 
+### path
+
+#### uconv
+export export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+
 ### misc
 
 if command -v rbenv >/dev/null; then
