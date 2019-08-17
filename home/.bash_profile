@@ -45,6 +45,9 @@ if command -v pyenv >/dev/null; then
     eval "$(pyenv init -)"
 fi
 
+#### avoid Ctrl-s collision
+stty -ixon
+
 __emacs() {
     if [ -z "$1" ]; then
         emacsclient -a -t -c
