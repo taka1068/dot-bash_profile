@@ -36,8 +36,15 @@ alias myc='clang -Wall -Wextra -std=c11'
 ### path
 
 #### uconv
-export export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+
+### history
+export HISTTIMEFORMAT="%h %d %H:%M:%S "
+export HISTSIZE=10000
+export HISTFILESIZE=10000
+export HISTCONTROL=ignoreboth:erasedups
+export HISTIGNORE=history*:ls
 
 ### misc
 
