@@ -1,0 +1,3 @@
+# https://www.gnu.org/software/bash/manual/html_node/Readline-Init-File-Syntax.html
+set show-all-if-ambiguous on
+set visible-stats on
