@@ -10,12 +10,19 @@ source ~/.git-prompt.sh
 
 ### PS1
 
-__PS_RED='\[\e[31;1m\]'
-__PS_GREEN='\[\e[32;1m\]'
-__PS_CLEAR='\[\e[0m\]'
+PROMPT_COMMAND=__prompt_command
 
-export PS1="${__PS_RED}\w${__PS_GREEN}\$(__git_ps1 \" (%s)\")\n"
-export PS1="${PS1}${__PS_RED}$ ${__PS_CLEAR}"
+__prompt_command() {
+    local EXIT="$?"
+    local PS_RED='\[\e[31;1m\]'
+    local PS_GREEN='\[\e[32;1m\]'
+    local PS_YELLOW='\[\e[33;1m\]'
+    local PS_CLEAR='\[\e[0m\]'
+
+    PS1="${PS_RED}\w${PS_GREEN}\$(__git_ps1 \" (%s)\") ${PS_YELLOW}${EXIT}\n"
+    export PS1="${PS1}${PS_RED}$ ${PS_CLEAR}"
+}
+
 export PROMPT_DIRTRIM=3
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
