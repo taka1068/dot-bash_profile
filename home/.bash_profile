@@ -16,11 +16,12 @@ __prompt_command() {
     local EXIT="$?"
     local PS_RED='\[\e[31;1m\]'
     local PS_GREEN='\[\e[32;1m\]'
-    local PS_BLUE='\[\e[35;1m\]'
+    local PS_YELLOW='\[\e[33;1m\]'
     local PS_CLEAR='\[\e[0m\]'
 
-    PS1="${PS_RED}\w${PS_GREEN}\$(__git_ps1 \" (%s)\") >${EXIT}\n"
+    PS1="${PS_RED}\w${PS_GREEN}\$(__git_ps1 \" (%s)\") ${PS_YELLOW}${EXIT}\n"
     export PS1="${PS1}${PS_RED}$ ${PS_CLEAR}"
+    echo -n -e "\033]0;${PWD}\007"
 }
 
 export PROMPT_DIRTRIM=3
