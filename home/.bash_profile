@@ -19,9 +19,11 @@ __prompt_command() {
     local PS_YELLOW='\[\e[33;1m\]'
     local PS_CLEAR='\[\e[0m\]'
 
+    local cwd=$(pwd | sed "s|$HOME|~|")
+
     PS1="${PS_RED}\w${PS_GREEN}\$(__git_ps1 \" (%s)\") ${PS_YELLOW}${EXIT}\n"
     export PS1="${PS1}${PS_RED}$ ${PS_CLEAR}"
-    echo -n -e "\033]0;${PWD}\007"
+    echo -n -e "\033]0;${cwd}\007"
 }
 
 export PROMPT_DIRTRIM=3
