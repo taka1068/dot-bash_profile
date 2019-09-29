@@ -36,6 +36,7 @@ export GIT_PS1_SHOWUPSTREAM="auto"
 alias emacs='__emacs'
 alias ema='__ema'
 alias ekill='emacsclient -e "(kill-emacs)"'
+alias estart='/usr/local/bin/emacs --daemon'
 alias ls='ls -F'
 alias rm='rm -i'
 alias mv='mv -i'
