@@ -73,7 +73,7 @@ __emacs() {
     if [ -z "$1" ]; then
         emacsclient -a -t -c
     elif [ ! -f "$1" ]; then
-        touch "$1"
+        echo "" > "$1"
         emacsclient -a -t "$1"
     else
         emacsclient -a -t "$1"
@@ -84,7 +84,7 @@ __ema() {
     if [ -z "$1" ]; then
         open -a emacs
     elif [ ! -f "$1" ]; then
-        touch "$1"
+        echo "" > "$1"
         open -a emacs "$1"
     else
         open -a emacs "$1"
