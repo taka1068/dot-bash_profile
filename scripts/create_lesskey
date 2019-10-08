@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+lesskey -o "$HOME/.less" less
