@@ -4,9 +4,9 @@
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 # download from https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
-source ~/.git-completion.bash
+[[ -f ~/.git-prompt.sh ]] && source ~/.git-prompt.sh
 # download from https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
-source ~/.git-prompt.sh
+[[ -f ~/.git-prompt.sh ]] && source ~/.git-prompt.sh
 
 ### PS1
 
@@ -21,7 +21,12 @@ __prompt_command() {
 
     local cwd=$(pwd | sed "s|$HOME|~|")
 
-    PS1="${PS_RED}\w${PS_GREEN}\$(__git_ps1 \" (%s)\") ${PS_YELLOW}${EXIT}\n"
+    if command -v __git_ps1 >/dev/null; then
+        PS1="${PS_RED}\h:\w${PS_GREEN}\$(__git_ps1 \" (%s)\") ${PS_YELLOW}${EXIT}\n"
+    else
+        PS1="${PS_RED}\h:\w ${PS_YELLOW}${EXIT}\n"
+    fi
+
     export PS1="${PS1}${PS_RED}$ ${PS_CLEAR}"
     echo -n -e "\033]0;${cwd}\007"
 }
