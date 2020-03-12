@@ -4,7 +4,7 @@
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 # download from https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
-[[ -f ~/.git-prompt.sh ]] && source ~/.git-prompt.sh
+[[ -f ~/.git-completion.bash ]] && source ~/.git-completion.bash
 # download from https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
 [[ -f ~/.git-prompt.sh ]] && source ~/.git-prompt.sh
 
