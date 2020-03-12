@@ -42,18 +42,14 @@ export GIT_PS1_SHOWUPSTREAM="auto"
 alias emacs='__emacs'
 alias ema='__ema'
 alias ekill='emacsclient -e "(kill-emacs)"'
-alias estart='/usr/local/bin/emacs --daemon'
+alias estart='command emacs --daemon'
+if command -v open >/dev/null; then
+    alias ema='__ema'
+fi
 alias ls='ls -F'
 alias rm='rm -i'
 alias mv='mv -i'
 alias tree='tree -F'
-alias myc='clang -Wall -Wextra -std=c11'
-
-### path
-
-#### uconv
-export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 
 ### history
 export HISTTIMEFORMAT="%h %d %H:%M:%S "
@@ -85,6 +81,8 @@ __emacs() {
         emacsclient -a -t "$1"
     fi
 }
+
+
 
 __ema() {
     if [ -z "$1" ]; then
