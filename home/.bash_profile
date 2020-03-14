@@ -32,7 +32,7 @@ __prompt_command() {
 }
 
 export PROMPT_DIRTRIM=3
-export PAGER='/usr/local/bin/less -is'
+export PAGER="$(which less) -is"
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWUPSTREAM="auto"

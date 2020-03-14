@@ -9,10 +9,6 @@ if [ "$input" != "yes" ]; then
     exit 1
 fi
 
-
-rm ~/.bash_profile
-rm ~/.inputrc
-
 ln -fs ${PWD}/home/.bash_profile ~/.bash_profile
 ln -fs ${PWD}/home/.inputrc ~/.inputrc 
 
