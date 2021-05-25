@@ -65,8 +65,11 @@ if command -v rbenv >/dev/null; then
 fi
 
 if command -v pyenv >/dev/null; then
-    eval "$(pyenv init -)"
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init --path)"
 fi
+
 
 ### path
 
