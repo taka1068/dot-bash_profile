@@ -70,6 +70,9 @@ if command -v pyenv >/dev/null; then
     eval "$(pyenv init --path)"
 fi
 
+if command -v nodenv >/dev/null; then
+    eval "$(nodenv init -)"
+fi
 
 ### path
 
