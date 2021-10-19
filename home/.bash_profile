@@ -50,6 +50,7 @@ alias ls='ls -F'
 alias rm='rm -i'
 alias mv='mv -i'
 alias tree='tree -F'
+alias eread='__emacs_readonly'
 
 ### history
 export HISTTIMEFORMAT="%h %d %H:%M:%S "
@@ -84,12 +85,12 @@ stty -ixon
 
 __emacs() {
     if [ -z "$1" ]; then
-        emacsclient -a -t -c
+        emacsclient -t -c
     elif [ ! -f "$1" ]; then
         echo "" > "$1"
-        emacsclient -a -t "$1"
+        emacsclient -t "$1"
     else
-        emacsclient -a -t "$1"
+        emacsclient -t "$1"
     fi
 }
 
@@ -107,3 +108,29 @@ __ema() {
 }
 
 
+__emacs_readonly() {
+    input="$1"
+
+    if echo $(basename $input) | grep --quiet "."; then
+        options="--suffix=.${input##*.}"
+    else
+        options=""
+    fi
+
+
+    if command -v gmktemp >/dev/null; then
+        t=$(gmktemp $options)
+    elif mktemp --version | head -n 1 | grep '9.' >/dev/null; then
+        t=$(mktemp $options)
+    else
+        echo 'make sure gmktemp has been installed.'
+        echo 'brew install coreutils'
+        exit 1
+    fi
+
+    echo $t
+    cat "$1" >> $t
+
+    __emacs "$t"
+    rm -f "$t"
+}
