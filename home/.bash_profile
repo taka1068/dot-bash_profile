@@ -76,9 +76,12 @@ if command -v nodenv >/dev/null; then
 fi
 
 ### path
-
+#### Android
 android_sdk_tools_path="$HOME/Library/Android/sdk/platform-tools"
 export PATH="$PATH:$android_sdk_tools_path"
+export ANDROID_SDK="$HOME/Library/Android/sdk"
+
+
 
 #### avoid Ctrl-s collision
 stty -ixon
