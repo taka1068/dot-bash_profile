@@ -22,9 +22,9 @@ __prompt_command() {
     local cwd=$(pwd | sed "s|$HOME|~|")
 
     if command -v __git_ps1 >/dev/null; then
-        PS1="${PS_RED}\h:\w${PS_GREEN}\$(__git_ps1 \" (%s)\") ${PS_YELLOW}${EXIT}\n"
+        PS1="${PS_RED}\w${PS_GREEN}\$(__git_ps1 \" (%s)\") ${PS_YELLOW}${EXIT}\n"
     else
-        PS1="${PS_RED}\h:\w ${PS_YELLOW}${EXIT}\n"
+        PS1="${PS_RED}\w ${PS_YELLOW}${EXIT}\n"
     fi
 
     export PS1="${PS1}${PS_RED}$ ${PS_CLEAR}"
@@ -70,11 +70,24 @@ if command -v pyenv >/dev/null; then
     eval "$(pyenv init --path)"
 fi
 
+if command -v nodenv >/dev/null; then
+    eval "$(nodenv init -)"
+fi
+
 
 ### path
 
-android_sdk_tools_path="$HOME/Library/Android/sdk/platform-tools"
-export PATH="$PATH:$android_sdk_tools_path"
+#### Android
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/Contents/home"
+
+#### Flutter
+export FLUTTER_SDK_HOME=$HOME/Developer/flutter/bin
+export PATH=$PATH:$FLUTTER_SDK_HOME
 
 #### avoid Ctrl-s collision
 stty -ixon
@@ -102,5 +115,4 @@ __ema() {
         open -a emacs "$1"
     fi
 }
-
 
