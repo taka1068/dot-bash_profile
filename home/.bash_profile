@@ -23,8 +23,10 @@ __prompt_command() {
 
     if command -v __git_ps1 >/dev/null; then
         PS1="${PS_RED}\w${PS_GREEN}\$(__git_ps1 \" (%s)\") ${PS_YELLOW}${EXIT}\n"
+        # PS1="${PS_RED}\h:\w${PS_GREEN}\$(__git_ps1 \" (%s)\") ${PS_YELLOW}${EXIT}\n"
     else
         PS1="${PS_RED}\w ${PS_YELLOW}${EXIT}\n"
+        # PS1="${PS_RED}\h:\w ${PS_YELLOW}${EXIT}\n"
     fi
 
     export PS1="${PS1}${PS_RED}$ ${PS_CLEAR}"
